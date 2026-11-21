@@ -1,0 +1,13 @@
+node_modules/
+bun.lock
+.DS_Store
+Thumbs.db
+*.log
+
+# internal: dev tooling (deploy script) and the plan/notes
+dev/
+docs/
+
+# notes for Claude: local only, never public
+CLAUDE.md
+AGENTS.md

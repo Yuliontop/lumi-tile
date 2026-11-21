@@ -1,0 +1,12 @@
+{
+  "version": "0.1.0",
+  "name": "Lumi Tile",
+  "identifier": "lumi_tile",
+  "author": "Ash",
+  "github": "https://github.com/Yuliontop/lumi-tile",
+  "homepage": "https://github.com/Yuliontop/lumi-tile#readme",
+  "description": "Several chats on screen at once: side by side, 1 + 2, or 2x2, with resizable tiles, full screen, and a layout that's remembered.",
+  "permissions": ["app_manipulation"],
+  "entry_frontend": "dist/frontend.js",
+  "minimum_lumiverse_version": "0.1.0"
+}
