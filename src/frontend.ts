@@ -457,7 +457,16 @@ export function parseSaved(v: unknown): Saved | null {
 
 const uid = () => Math.random().toString(36).slice(2, 10)
 
-const CSS = `
+// The overlay lives inside the host's app frame (`isolation: isolate`), so anything the hidden main window portals
+// straight into <body> draws above the tiles. Its floating expression does (z-index 9970), showing the live chat's
+// expression a second time at a spot meant for the full window. Hide it while tiling; tiles show their own.
+// ponytail: matched by CSS-module local names (expressionImg, minimizedIcon; unique to ExpressionDisplay) because
+// the host gives it no data-component. Ask Lumiverse for one and switch to it if this ever stops matching.
+const HOST_HIDE = `
+html[data-lumi-tile="host"] body > :is(:has([class*="_expressionImg_"]), :has(> [class*="_minimizedIcon_"])){display:none!important}
+`
+
+const CSS = HOST_HIDE + `
 .lt-root{position:fixed;inset:var(--app-interactive-safe-top,0px) 0 0 0;display:grid;grid-template-rows:1fr;background:var(--lumiverse-bg,#0c0b10);padding:6px;box-sizing:border-box}
 .lt-root *,.lt-pick,.lt-pick *{box-sizing:border-box;margin:0;letter-spacing:normal;text-transform:none;text-indent:0;float:none}
 .lt-tile{display:flex;flex-direction:column;min-width:0;min-height:0;border:1px solid var(--lumiverse-border,#333);border-radius:10px;overflow:hidden;background:var(--lumiverse-bg,#0c0b10)}

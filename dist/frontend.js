@@ -475,7 +475,10 @@ function parseSaved(v) {
   };
 }
 var uid = () => Math.random().toString(36).slice(2, 10);
-var CSS = `
+var HOST_HIDE = `
+html[data-lumi-tile="host"] body > :is(:has([class*="_expressionImg_"]), :has(> [class*="_minimizedIcon_"])){display:none!important}
+`;
+var CSS = HOST_HIDE + `
 .lt-root{position:fixed;inset:var(--app-interactive-safe-top,0px) 0 0 0;display:grid;grid-template-rows:1fr;background:var(--lumiverse-bg,#0c0b10);padding:6px;box-sizing:border-box}
 .lt-root *,.lt-pick,.lt-pick *{box-sizing:border-box;margin:0;letter-spacing:normal;text-transform:none;text-indent:0;float:none}
 .lt-tile{display:flex;flex-direction:column;min-width:0;min-height:0;border:1px solid var(--lumiverse-border,#333);border-radius:10px;overflow:hidden;background:var(--lumiverse-bg,#0c0b10)}

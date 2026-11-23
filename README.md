@@ -51,6 +51,13 @@ bun test
 
 Frontend only (no backend bundle). See `src/frontend.ts`.
 
+## Changelog
+
+- **0.1.1:** Expressions fix.
+  - **No more extra expression over the tiles:** the main Lumiverse window, hidden under the tiles, drew its own floating expression on top of them: a second copy of the live chat's expression, in a spot meant for the full window (a double edge behind the right tile's expression, or an obvious extra one in half-dock view). It's now hidden while tiling, in floating, half-dock and minimized views, and comes back when you return to one chat. Each tile keeps its own expression.
+  - **Good to know:** expression display settings (floating or docked, size, minimized) are saved per account by Lumiverse, so changing them in one tile changes every tile.
+- **0.1.0:** First release: up to four chats on screen (side by side, one wide + two, 2×2), resizable, live and dimmed tiles, full screen, add and close from tile headers, a remembered layout, and Lumi Flair 1.7.1 support.
+
 ## License
 
 MIT
